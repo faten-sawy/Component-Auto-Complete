@@ -1,0 +1,120 @@
+:root {
+  --clr: #1b263b;
+}
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: var(--clr);
+}
+.nav-bar {
+  background-color: #e6aa68;
+  height: 70px;
+  width: 350px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+}
+
+.nav-bar > ul {
+  position: relative;
+  display: flex;
+  width: 350px;
+  list-style: none;
+  text-align: center;
+  justify-content: center;
+  padding: 0;
+}
+.nav-bar > ul li {
+  position: relative;
+  width: 70px;
+  z-index: 1;
+}
+.nav-bar > ul > li > a {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  text-align: center;
+  align-items: center;
+  text-decoration: none;
+  color: black;
+}
+
+.nav-bar > ul > li > a .icon {
+  position: relative;
+  display: block;
+  line-height: 75px;
+  font-size: 1.8em;
+  text-align: center;
+
+  transition: 0.5s;
+  color: var(--clr);
+  height: 100%;
+}
+.nav-bar > ul > li a .text {
+  position: absolute;
+  transition: 0.5s;
+  letter-spacing: 1px;
+  opacity: 0;
+  transform: translateY(20px);
+  color: var(--clr);
+  /*  padding-top: 1rem; */
+}
+.nav-bar > ul > li.active a .icon {
+  transform: translateY(-32px);
+
+  width: 60px;
+}
+.nav-bar > ul > li.active a .text {
+  opacity: 1;
+  transform: translateY(15px);
+}
+.movement-div {
+  position: absolute;
+  top: -50%;
+  left: 8%;
+  width: 70px;
+  height: 70px;
+  background-color: #ece4b7;
+  border-radius: 50%;
+  border: 6px solid var(--clr);
+  transition: 0.5s;
+}
+.movement-div::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: -22px;
+  width: 20px;
+  height: 20px;
+  background: transparent;
+  border-top-right-radius: 20px;
+  box-shadow: 1px -10px 0 0 var(--clr);
+}
+.movement-div::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: -22px;
+  width: 20px;
+  height: 20px;
+  background: transparent;
+  border-top-left-radius: 20px;
+  box-shadow: -1px -10px 0 0 var(--clr);
+}
+.nav-bar ul li:nth-child(1).active ~ .movement-div {
+  transform: translateX(calc(70px * 0));
+}
+.nav-bar ul li:nth-child(2).active ~ .movement-div {
+  transform: translateX(calc(70px * 1));
+}
+.nav-bar ul li:nth-child(3).active ~ .movement-div {
+  transform: translateX(calc(70px * 2));
+}
+.nav-bar ul li:nth-child(4).active ~ .movement-div {
+  transform: translateX(calc(70px * 3));
+}
